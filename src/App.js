@@ -29,23 +29,15 @@ class App extends Component {
 		})).then(array=>{
 			for(let i =0;i<urls.length;i++){
 				this.setState({starships: array.map(item => item.results).reduce((sum, cur) => sum.concat(cur), []) })
-				console.log(array[i].results);
 			}
 		})
-
-		// fetch('https://swapi.co/api/starships/10/')
-		//   .then(response=> response.json())
-		//   .then(starships=> this.setState({starships: starships}))
-		
-		// .catch(error => 
-		// 	console.log('Error during fetching of starships:', error)
-		// );
+		.catch(error => 
+			console.log('Error during fetching of starships:', error)
+		);
 	}
 
 	onSearchChange = (event) => {
-		this.setState({ searchField: event.target.value })
-		console.log(event.target.value);
-	}
+		this.setState({ searchField: event.target.value })	}
 
 	render() {
 
